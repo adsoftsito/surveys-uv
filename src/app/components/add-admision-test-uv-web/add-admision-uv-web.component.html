@@ -1,0 +1,164 @@
+<form #testForm="ngForm" (ngSubmit)="saveTest()" novalidate>
+  <div class="form-container">
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <!-- Datos personales -->
+        <fieldset class="border p-3 mb-3">
+          <legend class="w-auto">Datos personales</legend>
+          <div class="form-group">
+            <label for="appPaterno">Apellido Paterno</label>
+            <input type="text" class="form-control" id="appPaterno" required [(ngModel)]="admision.appPaterno"
+              name="appPaterno" #appPaterno="ngModel" />
+            <div class="text-danger" *ngIf="appPaterno.invalid && appPaterno.touched">
+              <span *ngIf="appPaterno.errors?.['required']">Este campo es obligatorio.</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="appMaterno">Apellido Materno</label>
+            <input class="form-control" id="appMaterno" required [(ngModel)]="admision.appMaterno" name="appMaterno"
+              #appMaterno="ngModel" />
+            <div class="text-danger" *ngIf="appMaterno.invalid && appMaterno.touched">
+              <span *ngIf="appMaterno.errors?.['required']">Este campo es obligatorio.</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="nombre">Nombre completo</label>
+            <input class="form-control" id="nombre" required [(ngModel)]="admision.nombre" name="nombre"
+              #nombre="ngModel" />
+            <div class="text-danger" *ngIf="nombre.invalid && nombre.touched">
+              <span *ngIf="nombre.errors?.['required']">Este campo es obligatorio.</span>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Información académica -->
+        <fieldset class="border p-3 mb-3">
+          <legend class="w-auto">Información académica</legend>
+
+          <div class="form-group">
+            <label for="programaInteres">Carrera de interés</label>
+            <select class="form-control" id="programaInteres" required [(ngModel)]="admision.programaInteres"
+              name="programaInteres" #programaInteres="ngModel">
+              <option value="" disabled selected>Seleccione una opción</option>
+              <option value="lae">Lic. en Administración de Empresas</option>
+              <option value="conta">Lic. en Contaduría</option>
+              <option value="gestion">Gestión y Dirección de Negocios</option>
+              <option value="isw">Ing. de Software</option>
+              <option value="ltio">Lic. en Tecnologías de la Información en las Org.</option>
+              <option value="cspol">Lic. en Ciencias Políticas y Gestión Pública</option>
+              <option value="other">Otro, especifique...</option>
+            </select>
+            <div class="text-danger" *ngIf="programaInteres.invalid && programaInteres.touched">
+              <span *ngIf="programaInteres.errors?.['required']">Seleccione una carrera.</span>
+            </div>
+          </div>
+
+          <div class="form-group" *ngIf="admision.programaInteres === 'other'">
+            <label for="otroPrograma">Otra carrera no listada</label>
+            <input class="form-control" id="otroPrograma" required [(ngModel)]="admision.otroPrograma" name="otroPrograma"
+              #otroPrograma="ngModel" />
+            <div class="text-danger" *ngIf="otroPrograma.invalid && otroPrograma.touched">
+              <span *ngIf="otroPrograma.errors?.['required']">Este campo es obligatorio.</span>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Bachillerato de procedencia -->
+        <fieldset class="border p-3 mb-3">
+          <legend class="w-auto">Bachillerato de procedencia</legend>
+
+          <div class="form-group">
+            <label for="bachilleratoProcedencia">Selecciona tu bachillerato</label>
+            <select class="form-control" id="bachilleratoProcedencia" required
+              [(ngModel)]="admision.bachilleratoProcedencia" name="bachilleratoProcedencia"
+              #bachilleratoProcedencia="ngModel">
+              <option value="" disabled selected>Seleccione una opción</option>
+              <option value="cobaev06">Colegio Bachilleres 06 de Nogales</option>
+              <option value="cobaevmaltrata">Colegio Bachilleres Maltrata</option>
+              <option value="cobaevcordoba">Colegio Bachilleres Córdoba</option>
+              <option value="cetisrioblanco">CETIS de Río Blanco</option>
+              <option value="conaleporizaba">Conalep Orizaba</option>
+              <option value="cbtisixtac">CBTIS Ixtac</option>
+              <option value="cbtisfortin">CBTIS Fortín</option>
+              <option value="cbtiscordoba">CBTIS Córdoba</option>
+              <option value="cbtischicola">CBTIS Chicola</option>
+              <option value="esbo">ESBO Orizaba</option>
+              <option value="colmexorizaba">Colegio México Orizaba</option>
+              <option value="esbao">ESBAO Córdoba</option>
+              <option value="prepaunivo">UNIVO Preparatoria</option>
+              <option value="angloorizaba">Colegio Anglo Francés Orizaba</option>
+              <option value="oxford">Colegio Oxford Córdoba</option>
+              <option value="ceico">CEICO Orizaba</option>
+              <option value="cpo">CPO Orizaba</option>
+              <option value="guillaumin">Guillaumin Preparatoria</option>
+              <option value="hispanoorizaba">Hispano Orizaba</option>
+              <option value="hispanocordoba">Hispano Córdoba</option>
+              <option value="eba">Escuela de Bachilleres América Cd. Mendoza</option>
+              <option value="cetis">CETIS (otro)</option>
+              <option value="cbtis">CBTIS (otro)</option>
+              <option value="conalep">CONALEP (otro)</option>
+              <option value="other">Otro, especifique...</option>
+            </select>
+            <div class="text-danger" *ngIf="bachilleratoProcedencia.invalid && bachilleratoProcedencia.touched">
+              <span *ngIf="bachilleratoProcedencia.errors?.['required']">Seleccione un bachillerato.</span>
+            </div>
+          </div>
+
+          <div class="form-group" *ngIf="admision.bachilleratoProcedencia === 'other'">
+            <label for="otroBachillerato">Otro bachillerato no listado</label>
+            <input class="form-control" id="otroBachillerato" required [(ngModel)]="admision.otroBachillerato"
+              name="otroBachillerato" #otroBachillerato="ngModel" />
+            <div class="text-danger" *ngIf="otroBachillerato.invalid && otroBachillerato.touched">
+              <span *ngIf="otroBachillerato.errors?.['required']">Este campo es obligatorio.</span>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Información de contacto -->
+        <fieldset class="border p-3 mb-3">
+          <legend class="w-auto">Información de contacto</legend>
+
+          <div class="form-group">
+            <label for="telefono">Teléfono</label>
+            <input class="form-control" id="telefono" required pattern="[0-9]{10}" [(ngModel)]="admision.telefono"
+              name="telefono" #telefono="ngModel" />
+            <div class="text-danger" *ngIf="telefono.invalid && telefono.touched">
+              <span *ngIf="telefono.errors?.['required']">Este campo es obligatorio.</span>
+              <span *ngIf="telefono.errors?.['pattern']">Debe ser un número de 10 dígitos.</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input class="form-control" id="email" required email [(ngModel)]="admision.email" name="email"
+              #email="ngModel" />
+            <div class="text-danger" *ngIf="email.invalid && email.touched">
+              <span *ngIf="email.errors?.['required']">Este campo es obligatorio.</span>
+              <span *ngIf="email.errors?.['email']">Debe ser un correo válido.</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="facebook">Facebook/Instagram</label>
+            <input class="form-control" id="facebook" required [(ngModel)]="admision.facebook" name="facebook"
+              #facebook="ngModel" />
+            <div class="text-danger" *ngIf="facebook.invalid && facebook.touched">
+              <span *ngIf="facebook.errors?.['required']">Este campo es obligatorio.</span>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Botón de envío -->
+        <button type="submit" class="btn btn-success w-100" [disabled]="testForm.invalid">Registrarme</button>
+      </div>
+
+      <!-- Mensaje de éxito -->
+      <div *ngIf="submitted" class="text-center mt-3">
+        <h4>Te has registrado exitosamente!</h4>
+        <h3>¡Felicidades!</h3>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "surveys-uv",
+    "admisiones-uv": "surveys-uv"
+  },
+  "targets": {},
+  "etags": {}
+}
