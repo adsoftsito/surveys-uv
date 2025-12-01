@@ -15,17 +15,9 @@ export class AddAdmisionUvWebComponent {
 
   saveTest(): void {
     if (
-      !this.admision.appPaterno ||
-      !this.admision.appMaterno ||
-      !this.admision.nombre ||
-      !this.admision.programaInteres ||
-      (this.admision.programaInteres === 'other' && !this.admision.otroPrograma) ||
-      !this.admision.bachilleratoProcedencia ||
-      (this.admision.bachilleratoProcedencia === 'other' &&
-        !this.admision.otroBachillerato) ||
-      !this.admision.telefono ||
-      !this.admision.email ||
-      !this.admision.facebook
+      !this.admision.tipo ||
+      !this.admision.sexo ||
+      !this.admision.comentario 
     ) {
       alert('Por favor, completa todos los campos obligatorios.');
       return;

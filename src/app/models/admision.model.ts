@@ -1,15 +1,9 @@
 export class Admision {
   id?: string;
-  appPaterno?: string;
-  appMaterno?: string;
-  nombre?: string;
-  programaInteres?: string;
-  otroPrograma?: string = '-';
-  bachilleratoProcedencia?: string;
-  otroBachillerato?: string = '-';
-  telefono?: string;
-  email?: string;
-  facebook?: string;
+  tipo?: string;
+  sexo?: string;
+  matricula?: string = '0';
+  comentario?: string;
   facultad?: string = 'fnt';
 }
 

@@ -2,7 +2,7 @@
   <div class="form-container">
     <div class="submit-form">
       <div *ngIf="!submitted">
-        <!-- Datos personales -->
+        <!-- Datos personales 
         <fieldset class="border p-3 mb-3">
           <legend class="w-auto">Datos personales</legend>
           <div class="form-group">
@@ -13,7 +13,6 @@
               <span *ngIf="appPaterno.errors?.['required']">Este campo es obligatorio.</span>
             </div>
           </div>
-
           <div class="form-group">
             <label for="appMaterno">Apellido Materno</label>
             <input class="form-control" id="appMaterno" required [(ngModel)]="admision.appMaterno" name="appMaterno"
@@ -32,29 +31,27 @@
             </div>
           </div>
         </fieldset>
+-->
 
         <!-- Información académica -->
         <fieldset class="border p-3 mb-3">
-          <legend class="w-auto">Información académica</legend>
+          <legend class="w-auto">Quejas y/o sugerencias</legend>
 
           <div class="form-group">
-            <label for="programaInteres">Carrera de interés</label>
-            <select class="form-control" id="programaInteres" required [(ngModel)]="admision.programaInteres"
-              name="programaInteres" #programaInteres="ngModel">
+            <label for="tipo">Tipo de persona</label>
+            <select class="form-control" id="tipo" required [(ngModel)]="admision.tipo"
+              name="tipo" #tipo="ngModel">
               <option value="" disabled selected>Seleccione una opción</option>
-              <option value="lae">Lic. en Administración de Empresas</option>
-              <option value="conta">Lic. en Contaduría</option>
-              <option value="gestion">Gestión y Dirección de Negocios</option>
-              <option value="isw">Ing. de Software</option>
-              <option value="ltio">Lic. en Tecnologías de la Información en las Org.</option>
-              <option value="cspol">Lic. en Ciencias Políticas y Gestión Pública</option>
-              <option value="other">Otro, especifique...</option>
+              <option value="est">Estudiante</option>
+              <option value="prof">Profesor</option>
+              <option value="adm">Personal administrativo</option>
             </select>
-            <div class="text-danger" *ngIf="programaInteres.invalid && programaInteres.touched">
-              <span *ngIf="programaInteres.errors?.['required']">Seleccione una carrera.</span>
+            <div class="text-danger" *ngIf="tipo.invalid && tipo.touched">
+              <span *ngIf="tipo.errors?.['required']">Seleccione un tipo</span>
             </div>
           </div>
-
+ 
+          <!--
           <div class="form-group" *ngIf="admision.programaInteres === 'other'">
             <label for="otroPrograma">Otra carrera no listada</label>
             <input class="form-control" id="otroPrograma" required [(ngModel)]="admision.otroPrograma" name="otroPrograma"
@@ -63,49 +60,23 @@
               <span *ngIf="otroPrograma.errors?.['required']">Este campo es obligatorio.</span>
             </div>
           </div>
-        </fieldset>
-
-        <!-- Bachillerato de procedencia -->
-        <fieldset class="border p-3 mb-3">
-          <legend class="w-auto">Bachillerato de procedencia</legend>
+-->
 
           <div class="form-group">
-            <label for="bachilleratoProcedencia">Selecciona tu bachillerato</label>
-            <select class="form-control" id="bachilleratoProcedencia" required
-              [(ngModel)]="admision.bachilleratoProcedencia" name="bachilleratoProcedencia"
-              #bachilleratoProcedencia="ngModel">
+            <label for="sexo">Sexo</label>
+            <select class="form-control" id="sexo" required
+              [(ngModel)]="admision.sexo" name="sexo"
+              #sexo="ngModel">
               <option value="" disabled selected>Seleccione una opción</option>
-              <option value="cobaev06">Colegio Bachilleres 06 de Nogales</option>
-              <option value="cobaevmaltrata">Colegio Bachilleres Maltrata</option>
-              <option value="cobaevcordoba">Colegio Bachilleres Córdoba</option>
-              <option value="cetisrioblanco">CETIS de Río Blanco</option>
-              <option value="conaleporizaba">Conalep Orizaba</option>
-              <option value="cbtisixtac">CBTIS Ixtac</option>
-              <option value="cbtisfortin">CBTIS Fortín</option>
-              <option value="cbtiscordoba">CBTIS Córdoba</option>
-              <option value="cbtischicola">CBTIS Chicola</option>
-              <option value="esbo">ESBO Orizaba</option>
-              <option value="colmexorizaba">Colegio México Orizaba</option>
-              <option value="esbao">ESBAO Córdoba</option>
-              <option value="prepaunivo">UNIVO Preparatoria</option>
-              <option value="angloorizaba">Colegio Anglo Francés Orizaba</option>
-              <option value="oxford">Colegio Oxford Córdoba</option>
-              <option value="ceico">CEICO Orizaba</option>
-              <option value="cpo">CPO Orizaba</option>
-              <option value="guillaumin">Guillaumin Preparatoria</option>
-              <option value="hispanoorizaba">Hispano Orizaba</option>
-              <option value="hispanocordoba">Hispano Córdoba</option>
-              <option value="eba">Escuela de Bachilleres América Cd. Mendoza</option>
-              <option value="cetis">CETIS (otro)</option>
-              <option value="cbtis">CBTIS (otro)</option>
-              <option value="conalep">CONALEP (otro)</option>
-              <option value="other">Otro, especifique...</option>
+              <option value="masc">Masculino</option>
+              <option value="fem">Femenino</option>
+              <option value="nobin">No binario</option>
             </select>
-            <div class="text-danger" *ngIf="bachilleratoProcedencia.invalid && bachilleratoProcedencia.touched">
-              <span *ngIf="bachilleratoProcedencia.errors?.['required']">Seleccione un bachillerato.</span>
+            <div class="text-danger" *ngIf="sexo.invalid && sexo.touched">
+              <span *ngIf="sexo.errors?.['required']">Seleccione el sexo.</span>
             </div>
           </div>
-
+          <!--
           <div class="form-group" *ngIf="admision.bachilleratoProcedencia === 'other'">
             <label for="otroBachillerato">Otro bachillerato no listado</label>
             <input class="form-control" id="otroBachillerato" required [(ngModel)]="admision.otroBachillerato"
@@ -114,9 +85,19 @@
               <span *ngIf="otroBachillerato.errors?.['required']">Este campo es obligatorio.</span>
             </div>
           </div>
+          -->
+
+           <div class="form-group">
+            <label for="comentario">Queja o sugerencia</label>
+            <textarea class="form-control" id="comentario" required [(ngModel)]="admision.comentario" name="comentario"
+              #comentario="ngModel"></textarea>
+            <div class="text-danger" *ngIf="comentario.invalid && comentario.touched">
+              <span *ngIf="comentario.errors?.['required']">Este campo es obligatorio.</span>
+            </div>
+          </div>
         </fieldset>
 
-        <!-- Información de contacto -->
+        <!-- Información de contacto 
         <fieldset class="border p-3 mb-3">
           <legend class="w-auto">Información de contacto</legend>
 
@@ -149,15 +130,15 @@
             </div>
           </div>
         </fieldset>
-
+-->
         <!-- Botón de envío -->
         <button type="submit" class="btn btn-success w-100" [disabled]="testForm.invalid">Registrarme</button>
       </div>
 
       <!-- Mensaje de éxito -->
       <div *ngIf="submitted" class="text-center mt-3">
-        <h4>Te has registrado exitosamente!</h4>
-        <h3>¡Felicidades!</h3>
+        <h4>Tu comentario se ha registrado exitosamente!</h4>
+        <h3>¡Gracias!</h3>
       </div>
     </div>
   </div>

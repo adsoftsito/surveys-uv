@@ -13,7 +13,7 @@ export class AdmisionUvWebListComponent implements OnInit {
   currentAdmision?: Admision;
   currentIndex = -1;
   title = '';
-  programaInteres = '';
+  tipo = '';
   n = 0;
 
   constructor(private readonly admisionUvWebService: AdmisionUvWebService) { }
@@ -30,7 +30,7 @@ export class AdmisionUvWebListComponent implements OnInit {
 
   retrieveAdmisionesByProgram(): void {
     //lert(this.programaInteres)
-    this.admisionUvWebService.getByProgram(this.programaInteres).snapshotChanges().pipe(
+    this.admisionUvWebService.getByProgram(this.tipo).snapshotChanges().pipe(
       map(changes =>
         changes.map(c =>
           ({ id: c.payload.doc.id, ...c.payload.doc.data() })

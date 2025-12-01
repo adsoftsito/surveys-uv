@@ -3,23 +3,21 @@
 
     <div class="form-group">
       <label for="description">Filtrar por Carrera </label>
-      <select class="form-control" id="programaInteres" required [(ngModel)]="programaInteres" name="programaInteres"
+      <select class="form-control" id="tipo" required [(ngModel)]="tipo" name="tipo"
         (change)="retrieveAdmisionesByProgram()">
-        <option value="lae">Lic. en Administracion de Empresas</option>
-        <option value="conta">Lic. en Contaduria</option>
-        <option value="gestion">Gestion y direccion de negocios</option>
-        <option value="isw">Ing. de software</option>
-        <option value="ltio">Lic. Tecnologias de la Informacion en las Org.</option>
-        <option value="cspol">Lic. en Ciencias Politicas y Gestion Publica</option>
-
+        <option value="est">Estudiante</option>
+        <option value="prof">Profesor</option>
+        <option value="adm">administrativo</option>
+       
       </select>
     </div>
 
-    <h3>{{n}} estudiantes</h3>
+    <h3>{{n}} Comentarios</h3>
     <ul class="list-group">
       <li class="list-group-item student-item" *ngFor="let admision of admisiones; let i = index"
         [class.active]="i == currentIndex" (click)="setActiveTest(admision, i)">
-        {{i+1}} {{admision.appPaterno}}-{{admision.appMaterno}}, {{admision.nombre}}
+
+        {{i+1}} {{admision.comentario}}
       </li>
     </ul>
 

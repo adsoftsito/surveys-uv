@@ -11,9 +11,9 @@ export class AdmisionUvWebDetailsComponent implements OnInit {
   @Input() admision?: Admision;
   @Output() refreshList: EventEmitter<any> = new EventEmitter();
   currentAdmision: Admision = {
-    appPaterno: '',
-    appMaterno: '',
-    nombre: ''
+    sexo: '',
+    tipo: '',
+    comentario: ''
   };
   message = '';
 
@@ -41,8 +41,8 @@ export class AdmisionUvWebDetailsComponent implements OnInit {
 
   updateAdmision(): void {
     const data = {
-      title: this.currentAdmision.appPaterno,
-      description: this.currentAdmision.appMaterno
+      title: this.currentAdmision.tipo,
+      description: this.currentAdmision.sexo
     };
 
     if (this.currentAdmision.id) {

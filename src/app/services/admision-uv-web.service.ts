@@ -18,10 +18,10 @@ export class AdmisionUvWebService {
     return this.admisionesRef;
   }
 
-  getByProgram(programaInteres : string): AngularFirestoreCollection<Admision> {
+  getByProgram(tipo : string): AngularFirestoreCollection<Admision> {
     //return this.db.collection(this.dbPath, ref => ref.where('programaInteres','==', programaInteres )).valueChanges()
     //return this.testsRef.('programaInteres','==', programaInteres)
-    return this.db.collection(this.dbPath, ref => ref.where('programaInteres', '==', programaInteres));
+    return this.db.collection(this.dbPath, ref => ref.where('tipo', '==', tipo));
   }
 
   create(admision: Admision): any {
