@@ -2,9 +2,22 @@
   <nav class="navbar navbar-expand navbar-dark custom-navbar">
     <a href="#" class="navbar-brand">UV - Comedor Universitario</a>
   </nav>
-
+<!--
   <div class="container mt-3">
     <app-admision-uv-web>
     </app-admision-uv-web>
   </div>
+-->
+  <ng-container *ngIf="esRaiz">
+    <app-admision-uv-web>
+    </app-admision-uv-web>
+  </ng-container>
+
+<!-- Si estamos en "/consultas" -->
+  <ng-container *ngIf="esConsultas">
+    <app-admision-uv-web-list></app-admision-uv-web-list>
+  </ng-container>
+
+<!-- Aquí el router-outlet si lo necesitas 
+<router-outlet></router-outlet> -->
 </div>

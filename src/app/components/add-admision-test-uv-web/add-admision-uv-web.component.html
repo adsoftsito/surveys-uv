@@ -37,14 +37,36 @@
         <fieldset class="border p-3 mb-3">
           <legend class="w-auto">Quejas y/o sugerencias</legend>
 
+
+          <div class="form-group">
+            <label for="facultad">Facultad</label>
+            <select class="form-control" id="facultad" required [(ngModel)]="admision.facultad"
+              name="facultad" #facultad="ngModel">
+              <option value="" disabled selected>Seleccione una opción</option>
+              <option value="fnt">Facultad de Negocios y Tecnologias</option>
+              <option valufacultade="fi">Facultad de Ingenieria</option>
+              <option valufacultade="sea">Sistema de Enseñanza Abierta</option>
+              <option valufacultade="otros">Otros</option>
+
+            </select>
+            <div class="text-danger" *ngIf="facultad.invalid && facultad.touched">
+              <span *ngIf="tipo.errors?.['required']">Seleccione un tipo</span>
+            </div>
+          </div>
+ 
           <div class="form-group">
             <label for="tipo">Tipo de persona</label>
             <select class="form-control" id="tipo" required [(ngModel)]="admision.tipo"
               name="tipo" #tipo="ngModel">
               <option value="" disabled selected>Seleccione una opción</option>
               <option value="est">Estudiante</option>
-              <option value="prof">Profesor</option>
+              <option value="prof">Academico</option>
               <option value="adm">Personal administrativo</option>
+              <option value="conf">Personal Confianza</option>
+              <option value="apoyo">Personal Apoyo</option>
+              <option value="tecnico">Personal Tecnico</option>
+              <option value="externo">Externo</option>
+
             </select>
             <div class="text-danger" *ngIf="tipo.invalid && tipo.touched">
               <span *ngIf="tipo.errors?.['required']">Seleccione un tipo</span>

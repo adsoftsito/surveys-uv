@@ -2,12 +2,16 @@
   <div class="col-md-6">
 
     <div class="form-group">
-      <label for="description">Filtrar por Carrera </label>
+      <label for="description">Filtrar por : </label>
       <select class="form-control" id="tipo" required [(ngModel)]="tipo" name="tipo"
         (change)="retrieveAdmisionesByProgram()">
-        <option value="est">Estudiante</option>
-        <option value="prof">Profesor</option>
-        <option value="adm">administrativo</option>
+              <option value="est">Estudiante</option>
+              <option value="prof">Academico</option>
+              <option value="adm">Personal administrativo</option>
+              <option value="conf">Personal Confianza</option>
+              <option value="apoyo">Personal Apoyo</option>
+              <option value="tecnico">Personal Tecnico</option>
+              <option value="externo">Externo</option>
        
       </select>
     </div>
@@ -17,7 +21,7 @@
       <li class="list-group-item student-item" *ngFor="let admision of admisiones; let i = index"
         [class.active]="i == currentIndex" (click)="setActiveTest(admision, i)">
 
-        {{i+1}} {{admision.comentario}}
+        {{i+1}} {{admision.facultad}} -  {{admision.tipo}} - {{admision.comentario}} 
       </li>
     </ul>
 
@@ -26,10 +30,13 @@
     <div *ngIf="currentAdmision">
       <app-admision-uv-web-details (refreshList)="refreshList()" [admision]="currentAdmision"></app-admision-uv-web-details>
     </div>
-
+<!--
     <div *ngIf="!currentAdmision">
       <br />
       <p>Seleccione un estudiante ...</p>
     </div>
+-->
+
   </div>
+  
 </div>

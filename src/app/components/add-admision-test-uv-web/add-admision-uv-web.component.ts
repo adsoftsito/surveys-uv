@@ -17,6 +17,7 @@ export class AddAdmisionUvWebComponent {
     if (
       !this.admision.tipo ||
       !this.admision.sexo ||
+      !this.admision.facultad ||
       !this.admision.comentario 
     ) {
       alert('Por favor, completa todos los campos obligatorios.');

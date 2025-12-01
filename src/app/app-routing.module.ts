@@ -6,7 +6,7 @@ import { AdmisionUvWebListComponent } from './components/admision-uv-web-list/ad
 
 const routes: Routes = [
 //  { path: '', redirectTo: 'add', pathMatch: 'full' },
- // { path: 'list', component: AdmisionUvWebListComponent },
+    { path: 'list-comments', component: AdmisionUvWebListComponent },
 //  { path: 'add', component: AddTestUvWebComponent }
 ];
 

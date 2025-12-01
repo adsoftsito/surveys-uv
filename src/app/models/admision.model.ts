@@ -5,6 +5,7 @@ export class Admision {
   matricula?: string = '0';
   comentario?: string;
   facultad?: string = 'fnt';
+  fecha?: Date = new Date();
 }
 
 /*
